@@ -16,8 +16,8 @@ import javax.validation.constraints.PositiveOrZero
 @RestController
 @RequestMapping(ArticleController.PATH)
 class ArticleController(
-    val articleService: ArticleService,
-    val articleDtoMapper: ArticleDtoMapper,
+    private val articleService: ArticleService,
+    private val articleDtoMapper: ArticleDtoMapper,
 ) {
 
     companion object {

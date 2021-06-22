@@ -9,7 +9,7 @@ class Article (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    var id: Long,
     var title: String,
     var content: String,
 
@@ -18,7 +18,7 @@ class Article (
 
     @ManyToOne
     @JoinColumn
-    val writer: User,
+    var writer: User,
 ) {
 
     @PrePersist
