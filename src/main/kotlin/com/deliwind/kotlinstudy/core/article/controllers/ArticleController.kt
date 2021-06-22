@@ -2,7 +2,6 @@ package com.deliwind.kotlinstudy.core.article.controllers
 
 import com.deliwind.kotlinstudy.core.article.controllers.models.ArticleDto
 import com.deliwind.kotlinstudy.core.article.controllers.models.mappers.ArticleDtoMapper
-import com.deliwind.kotlinstudy.core.article.domains.Article
 import com.deliwind.kotlinstudy.core.article.service.ArticleService
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
@@ -30,9 +29,7 @@ class ArticleController(
         @Valid searchCommand: ArticlesSearchCommand
     ): Page<ArticleDto.Response>
             = articleService.getArticles(searchCommand.pageable())
-        .toResponse()
-
-    fun Page<Article>.toResponse() = this.map(articleDtoMapper::articleToDto)
+        .map(articleDtoMapper::articleToDto)
 }
 
 data class ArticlesSearchCommand(
