@@ -76,22 +76,8 @@ class ArticleControllerTest : DescribeSpec() {
 
                 beforeEach {
                     every { articleService.getArticles(capture(slot)) } returns PageImpl(
-                        listOf(
-                            Article(
-                                id = 1,
-                                title = "제목",
-                                content = "글 내용",
-                                createdAt = LocalDateTime.now(),
-                                updatedAt = LocalDateTime.now(),
-                                writer = User(
-                                    id = 9,
-                                    name = "익명1",
-                                    email = "mail@naver.com"
-                                )
-                            )
-                        ),
-                        PageRequest.of(0, 20),
-                        1,
+                        listOf(makeAnArticle()),
+                        PageRequest.of(0, 20), 1,
                     )
                 }
 
@@ -117,3 +103,17 @@ class ArticleControllerTest : DescribeSpec() {
         }
     }
 }
+
+
+fun makeAnArticle() = Article(
+    id = 1,
+    title = "제목",
+    content = "글 내용",
+    createdAt = LocalDateTime.now(),
+    updatedAt = LocalDateTime.now(),
+    writer = User(
+        id = 9,
+        name = "익명1",
+        email = "mail@naver.com"
+    )
+)
