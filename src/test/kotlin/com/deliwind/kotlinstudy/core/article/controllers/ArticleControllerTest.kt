@@ -109,11 +109,12 @@ fun makeAnArticle() = Article(
     id = 1,
     title = "제목",
     content = "글 내용",
-    createdAt = LocalDateTime.now(),
-    updatedAt = LocalDateTime.now(),
     writer = User(
         id = 9,
         name = "익명1",
         email = "mail@naver.com"
     )
-)
+).apply {
+    createdAt = LocalDateTime.now()
+    updatedAt = LocalDateTime.now()
+}

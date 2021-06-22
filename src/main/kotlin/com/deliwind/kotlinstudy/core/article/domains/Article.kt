@@ -9,17 +9,17 @@ class Article (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long,
+    val id: Long? = null,
     var title: String,
     var content: String,
-
-    var createdAt: LocalDateTime,
-    var updatedAt: LocalDateTime,
 
     @ManyToOne
     @JoinColumn
     var writer: User,
 ) {
+
+    lateinit var createdAt: LocalDateTime
+    lateinit var updatedAt: LocalDateTime
 
     @PrePersist
     fun prePersist() {
