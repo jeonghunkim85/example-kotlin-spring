@@ -1,7 +1,6 @@
 package com.deliwind.kotlinstudy.core.article.controllers
 
 import com.deliwind.kotlinstudy.commons.Logger
-import com.deliwind.kotlinstudy.core.article.controllers.models.ArticleDto
 import com.deliwind.kotlinstudy.core.article.controllers.models.mappers.ArticleDtoMapper
 import com.deliwind.kotlinstudy.core.article.controllers.models.mappers.ArticleDtoMapperImpl
 import com.deliwind.kotlinstudy.core.article.domains.Article
@@ -22,16 +21,14 @@ import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
-import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
 import org.springframework.http.MediaType
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 import java.time.LocalDateTime
 
 @AutoConfigureMockMvc
